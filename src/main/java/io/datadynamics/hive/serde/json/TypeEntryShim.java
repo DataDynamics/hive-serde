@@ -10,7 +10,7 @@
  * limitations under the License. See accompanying LICENSE file.        *
  *======================================================================*/
 
-package io.datadynamics.hive.serde;
+package io.datadynamics.hive.serde.json;
 
 import org.apache.hadoop.hive.serde2.objectinspector.PrimitiveObjectInspector;
 import org.apache.hadoop.hive.serde2.objectinspector.primitive.AbstractPrimitiveJavaObjectInspector;

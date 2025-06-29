@@ -10,14 +10,14 @@
  * limitations under the License. See accompanying LICENSE file.        *
  *======================================================================*/
 
-package io.datadynamics.hive.serde.objectinspector.primitive;
+package io.datadynamics.hive.serde.json.objectinspector.primitive;
 
 import org.apache.hadoop.hive.serde2.io.TimestampWritable;
 import org.apache.hadoop.hive.serde2.objectinspector.primitive.AbstractPrimitiveJavaObjectInspector;
 import org.apache.hadoop.hive.serde2.objectinspector.primitive.SettableTimestampObjectInspector;
 
 import java.sql.Timestamp;
-import io.datadynamics.hive.serde.TypeEntryShim;
+import io.datadynamics.hive.serde.json.TypeEntryShim;
 
 /**
  * A timestamp that is stored in a String

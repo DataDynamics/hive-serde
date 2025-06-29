@@ -10,22 +10,23 @@
  * limitations under the License. See accompanying LICENSE file.        *
  *======================================================================*/
 
-package io.datadynamics.hive.serde.objectinspector.primitive;
+package io.datadynamics.hive.serde.json.objectinspector.primitive;
 
-import org.apache.hadoop.hive.serde2.io.DoubleWritable;
 import org.apache.hadoop.hive.serde2.objectinspector.primitive.AbstractPrimitiveJavaObjectInspector;
-import org.apache.hadoop.hive.serde2.objectinspector.primitive.SettableDoubleObjectInspector;
-import io.datadynamics.hive.serde.TypeEntryShim;
+import org.apache.hadoop.hive.serde2.objectinspector.primitive.SettableIntObjectInspector;
+import org.apache.hadoop.io.IntWritable;
+import io.datadynamics.hive.serde.json.TypeEntryShim;
 
 /**
  *
  * @author rcongiu
  */
-public class JavaStringDoubleObjectInspector extends AbstractPrimitiveJavaObjectInspector
-        implements SettableDoubleObjectInspector {
+public class JavaStringIntObjectInspector 
+    extends AbstractPrimitiveJavaObjectInspector
+        implements SettableIntObjectInspector {
 
-    public JavaStringDoubleObjectInspector() {
-        super(TypeEntryShim.doubleType);
+    public JavaStringIntObjectInspector() {
+        super(TypeEntryShim.intType);
     }
 
     @Override
@@ -33,35 +34,34 @@ public class JavaStringDoubleObjectInspector extends AbstractPrimitiveJavaObject
         if(o == null) return null;
         
         if(o instanceof String) {
-           return new DoubleWritable(Double.parseDouble((String)o)); 
+           return new IntWritable(ParsePrimitiveUtils.parseInt((String)o)); 
         } else {
-          return new DoubleWritable((Double) o);
+           return new IntWritable((Integer) o);
         }
     }
 
     @Override
-    public double get(Object o) {
-        
+    public int get(Object o) {
         if(o instanceof String) {
-           return Double.parseDouble((String)o); 
+           return ParsePrimitiveUtils.parseInt((String)o); 
         } else {
-          return (Double) o;
+           return (Integer) o;
         }
     }
 
     @Override
-    public Object getPrimitiveJavaObject(Object o) {
+    public Object getPrimitiveJavaObject(Object o)
+    {
         return get(o);
     }
 
     @Override
-    public Object create(double value) {
+    public Object create(int value) {
         return value;
     }
 
     @Override
-    public Object set(Object o, double value) {
+    public Object set(Object o, int value) {
         return value;
     }
-    
 }

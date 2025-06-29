@@ -1,4 +1,4 @@
-package io.datadynamics.hive.serde;
+package io.datadynamics.hive.serde.json;
 
 import org.apache.hadoop.hive.serde2.io.DateWritable;
 import org.apache.hadoop.hive.serde2.objectinspector.primitive.AbstractPrimitiveJavaObjectInspector;

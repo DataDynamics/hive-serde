@@ -10,42 +10,43 @@
  * limitations under the License. See accompanying LICENSE file.        *
  *======================================================================*/
 
-package io.datadynamics.hive.serde.objectinspector.primitive;
+package io.datadynamics.hive.serde.json.objectinspector.primitive;
 
 import org.apache.hadoop.hive.serde2.objectinspector.primitive.AbstractPrimitiveJavaObjectInspector;
-import org.apache.hadoop.hive.serde2.objectinspector.primitive.SettableIntObjectInspector;
-import org.apache.hadoop.io.IntWritable;
-import io.datadynamics.hive.serde.TypeEntryShim;
+import org.apache.hadoop.hive.serde2.objectinspector.primitive.SettableLongObjectInspector;
+import org.apache.hadoop.io.LongWritable;
+import io.datadynamics.hive.serde.json.TypeEntryShim;
 
 /**
  *
  * @author rcongiu
  */
-public class JavaStringIntObjectInspector 
-    extends AbstractPrimitiveJavaObjectInspector
-        implements SettableIntObjectInspector {
+public class JavaStringLongObjectInspector
+        extends AbstractPrimitiveJavaObjectInspector
+        implements SettableLongObjectInspector {
 
-    public JavaStringIntObjectInspector() {
-        super(TypeEntryShim.intType);
+    public JavaStringLongObjectInspector() {
+        super(TypeEntryShim.longType);
     }
 
     @Override
     public Object getPrimitiveWritableObject(Object o) {
         if(o == null) return null;
-        
+
         if(o instanceof String) {
-           return new IntWritable(ParsePrimitiveUtils.parseInt((String)o)); 
+           return new LongWritable(ParsePrimitiveUtils.parseLong((String)o));
         } else {
-           return new IntWritable((Integer) o);
+          return new LongWritable(((Long) o).longValue());
         }
     }
 
     @Override
-    public int get(Object o) {
+    public long get(Object o) {
+
         if(o instanceof String) {
-           return ParsePrimitiveUtils.parseInt((String)o); 
+           return ParsePrimitiveUtils.parseLong((String)o);
         } else {
-           return (Integer) o;
+          return (Long) o;
         }
     }
 
@@ -56,12 +57,12 @@ public class JavaStringIntObjectInspector
     }
 
     @Override
-    public Object create(int value) {
+    public Object create(long value) {
         return value;
     }
 
     @Override
-    public Object set(Object o, int value) {
+    public Object set(Object o, long value) {
         return value;
     }
 }

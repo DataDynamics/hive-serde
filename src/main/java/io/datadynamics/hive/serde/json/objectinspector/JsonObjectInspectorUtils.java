@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.datadynamics.hive.serde.objectinspector;
+package io.datadynamics.hive.serde.json.objectinspector;
 
 import org.apache.hadoop.io.Text;
 

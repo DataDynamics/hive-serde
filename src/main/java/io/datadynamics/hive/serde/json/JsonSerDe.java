@@ -1,8 +1,8 @@
-package io.datadynamics.hive.serde;
+package io.datadynamics.hive.serde.json;
 
-import io.datadynamics.hive.serde.objectinspector.JsonObjectInspectorFactory;
-import io.datadynamics.hive.serde.objectinspector.JsonStructOIOptions;
-import io.datadynamics.hive.serde.objectinspector.primitive.ParsePrimitiveUtils;
+import io.datadynamics.hive.serde.json.objectinspector.JsonObjectInspectorFactory;
+import io.datadynamics.hive.serde.json.objectinspector.JsonStructOIOptions;
+import io.datadynamics.hive.serde.json.objectinspector.primitive.ParsePrimitiveUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.hadoop.conf.Configuration;

@@ -9,7 +9,7 @@
  * See the License for the specific language governing permissions and  *
  * limitations under the License. See accompanying LICENSE file.        *
  *======================================================================*/
-package io.datadynamics.hive.serde.objectinspector;
+package io.datadynamics.hive.serde.json.objectinspector;
 
 
 import org.apache.hadoop.hive.serde2.objectinspector.ObjectInspector;

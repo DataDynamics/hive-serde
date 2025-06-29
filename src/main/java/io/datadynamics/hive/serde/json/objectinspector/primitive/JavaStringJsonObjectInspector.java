@@ -1,10 +1,10 @@
-package io.datadynamics.hive.serde.objectinspector.primitive;
+package io.datadynamics.hive.serde.json.objectinspector.primitive;
 
 
 import org.apache.hadoop.hive.serde2.objectinspector.primitive.AbstractPrimitiveJavaObjectInspector;
 import org.apache.hadoop.hive.serde2.objectinspector.primitive.SettableStringObjectInspector;
 import org.apache.hadoop.io.Text;
-import io.datadynamics.hive.serde.TypeEntryShim;
+import io.datadynamics.hive.serde.json.TypeEntryShim;
 
 public class JavaStringJsonObjectInspector
     extends AbstractPrimitiveJavaObjectInspector

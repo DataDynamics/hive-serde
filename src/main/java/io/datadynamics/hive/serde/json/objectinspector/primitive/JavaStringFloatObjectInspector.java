@@ -10,42 +10,41 @@
  * limitations under the License. See accompanying LICENSE file.        *
  *======================================================================*/
 
-package io.datadynamics.hive.serde.objectinspector.primitive;
+package io.datadynamics.hive.serde.json.objectinspector.primitive;
 
+import io.datadynamics.hive.serde.json.TypeEntryShim;
 import org.apache.hadoop.hive.serde2.objectinspector.primitive.AbstractPrimitiveJavaObjectInspector;
-import org.apache.hadoop.hive.serde2.objectinspector.primitive.SettableByteObjectInspector;
-import org.apache.hadoop.io.ByteWritable;
-import io.datadynamics.hive.serde.TypeEntryShim;
+import org.apache.hadoop.hive.serde2.objectinspector.primitive.SettableFloatObjectInspector;
+import org.apache.hadoop.io.FloatWritable;
 
 /**
  *
  * @author rcongiu
  */
-public  class JavaStringByteObjectInspector 
-    extends AbstractPrimitiveJavaObjectInspector
-        implements SettableByteObjectInspector {
+public class JavaStringFloatObjectInspector extends AbstractPrimitiveJavaObjectInspector
+        implements SettableFloatObjectInspector {
 
-    public  JavaStringByteObjectInspector() {
-        super(TypeEntryShim.byteType);
+    public JavaStringFloatObjectInspector() {
+        super(TypeEntryShim.floatType);
     }
-    
+
     @Override
     public Object getPrimitiveWritableObject(Object o) {
         if(o == null) return null;
         
         if(o instanceof String) {
-           return new ByteWritable(ParsePrimitiveUtils.parseByte((String)o)); 
+          return new FloatWritable(Float.parseFloat((String)o)); 
         } else {
-           return new ByteWritable((Byte) o);
+          return new FloatWritable((Float) o);
         }
     }
 
     @Override
-    public byte get(Object o) {
+    public float get(Object o) {  
         if(o instanceof String) {
-           return ParsePrimitiveUtils.parseByte((String)o); 
+          return Float.parseFloat((String)o); 
         } else {
-           return (Byte) o;
+          return (Float) o;
         }
     }
 
@@ -56,12 +55,13 @@ public  class JavaStringByteObjectInspector
     }
 
     @Override
-    public Object create(byte value) {
+    public Object create(float value) {
         return value;
     }
 
     @Override
-    public Object set(Object o, byte value) {
+    public Object set(Object o, float value) {
         return value;
     }
+    
 }
